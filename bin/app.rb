@@ -51,14 +51,14 @@ post '/shop' do
 
   variation_key = optimizely.activate('feature_rollout', user_id)
   if variation_key == 'holdback'
-    feature_display = 'none'
+    items = items.sort_by { |k| k['category'].to_i }
   elsif variation_key == 'new_feature'
     # execute code for new_feature
     feature_display = 'block'
     items = items.sort_by { |k| k[filter_by].to_i }
   else
     # execute default code
-    feature_display = 'none'
+    items = items.sort_by { |k| k['category'].to_i }
   end
 
   erb :index, :locals => {'user_id' => user_id, 'filter_by' => filter_by, 'feature_display' => feature_display, 'data' => items}
