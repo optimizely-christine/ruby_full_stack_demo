@@ -19,3 +19,5 @@ cd ruby_full_stack_demo/
 ruby bin/app.rb 
 ```
 Then go to [http://localhost:8080](http://localhost:8080)
+
+To update the Otpimizely variation code, view the bin/app.rb file
