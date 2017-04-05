@@ -2,6 +2,8 @@
  
 Please refer to the [Optimizely X: Full Stack Ruby Documentation](https://developers.optimizely.com/x/solutions/sdks/introduction/index.html?language=ruby).
 
+This demo app will show using the Rubk SDK to roll out a new sourting feature.
+
 ## Step 1: Install Optimizely and Ruby Dependencies
 
 ```
