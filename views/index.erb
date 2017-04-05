@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" class="height--1-1">
+  <head>
+     <title>Attic & Button</title>
+     <!-- Latest compiled and minified OUI stylesheet -->
+     <link rel="stylesheet" href="https://d2uaiq63sgqwfs.cloudfront.net/8.0.0/oui.css">
+     <style>
+       table, th, td, div {
+         padding: 5px;
+       }
+       button {
+         padding: 8px 15px;
+       }
+     </style>
+  </head>
+  <body class="background--grey height--1-1">
+    <div class="flex flex-justified--center soft-quad--ends soft-double--bottom background--faint">
+      <div class="max-width--large text--center text-align--center align--center">
+        <img src="images/logo.png" class="width--200 text--center align--middle" align="middle" style="margin-bottom:35px">
+        <center><h2> Welcome to Attic & Button!</h2></center>
+        <div align="center">
+          <form action="/shop" method="post">
+              <b>Simulate a visitor:</b> <input placeholder="Christine" type="text" name="user_id" value="<%= user_id %>">
+              <input type="submit" value="Shop">
+              <br/><br/>
+              <div style="display:<%= feature_display %>">
+                <b>Filter:</b>
+                <select name="filter" onchange="this.form.submit()">
+                  <option value="category">category</option>
+                  <% if filter_by == "price" %>
+                    <option selected="selected" value="price">price</option>
+                  <% else %>
+                    <option value="price">price</option>
+                  <% end %>
+                </select>
+              </div>
+          </form>
+        </div>
+        <% if data %>
+          <table style="cellspacing: 10">
+              <% data.each_with_index do |item, index| %>
+                <% if [0,3,6].include? index %>
+                <tr>
+                <% end %>
+                  <td class="background--white text--center font-family--tahoma">
+                    <h2><b><%= item.name %></b></h2>
+                    in <%= item.color %><br>
+                    <b><%= item.category %>, $<%= item.price %></b>
+                    <img src="/images/<%= item.imageUrl %>" />
+                    <form action="/buy" method="post">
+                        <input type="text" name="user_id" value="<%= user_id %>" hidden="true">
+
+                      <button type="submit" style="background: #cb1b2c; color: #ffffff; border: none">BUY NOW</button>
+                    </form>
+                  </td>
+                  <td width="10"></td>
+                  <p></p>
+                <% if [2,5,8].include? index   %>
+                </tr>
+                <tr height="10"></tr>
+                <% end %>
+            <% end %>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
