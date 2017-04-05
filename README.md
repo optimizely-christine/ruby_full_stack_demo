@@ -10,7 +10,7 @@ gem install optimizely-sdk
 sudo gem install -n /usr/local/bin/ httparty
 sudo gem install -n /usr/local/bin/ sinatra
 sudo gem install -n /usr/local/bin/ csv_hasher
-``
+```
 
 ## Step 2: Start the App
 
@@ -18,5 +18,4 @@ sudo gem install -n /usr/local/bin/ csv_hasher
 cd ruby_full_stack_demo/
 ruby bin/app.rb 
 ```
-* The app was designed to be shown in responsive mobile mode
-* The best viewing dimensions are 1440x440 or 1024x568
+Then go to [http://localhost:8080](http://localhost:8080)
