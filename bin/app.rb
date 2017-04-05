@@ -22,13 +22,10 @@ def build_items()
   f = File.open("bin/items.csv", "r")
   f.each_line { |line|
 
-    # each line has fields separated by commas, so split those fields
     fields = line.split(',')
 
-    # create a new Person
     item = Item.new
 
-    # do a little work here to get rid of double-quotes and blanks
     item.name = fields[0]
     item.color = fields[1]
     item.category = fields[2]
